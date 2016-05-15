@@ -17,7 +17,7 @@
         android:background="@drawable/logo_brooks21"
         android:id="@+id/toplayout"
         android:layout_above="@+id/buttomlayout"></LinearLayout>
-
+hello
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
