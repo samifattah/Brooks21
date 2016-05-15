@@ -15,6 +15,12 @@ public class StartLogoScreenFragment extends BaseFragment
 
     private Button m_LoginRegister = null;
 
+
+    public interface StartLogoScreenFragmentInterface extends BaseFragmentInterface
+    {
+        void whatthefuck();
+    }
+
     public StartLogoScreenFragment()
     {
         Utility.logDebug(m_szTag,"StartLogoScreenFragment");
@@ -56,11 +62,14 @@ public class StartLogoScreenFragment extends BaseFragment
     @Override
     public void handleClick(View v)
     {
+
         Utility.logDebug(m_szTag,"handleClick");
 
         if(v.getId()==this.m_LoginButton.getId())
         {
+            StartLogoScreenFragmentInterface startLogoScreenFragmentInterface = (StartLogoScreenFragmentInterface) m_BaseFragmentInterface;
 
+            startLogoScreenFragmentInterface.whatthefuck();
         }
 
         if(v.getId()==this.m_LoginRegister.getId())

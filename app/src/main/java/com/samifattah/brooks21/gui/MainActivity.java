@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.samifattah.brooks21.R;
 import com.samifattah.brooks21.util.Utility;
 
-public class MainActivity extends BaseActivity
+public class MainActivity extends BaseActivity implements StartLogoScreenFragment.StartLogoScreenFragmentInterface
 {
 
     public MainActivity()
@@ -32,4 +32,11 @@ public class MainActivity extends BaseActivity
 //        setContentView(R.layout.activity_main);
     }
 
+    @Override
+    public void whatthefuck()
+    {
+        int a = 10;
+
+        a = 10;
+    }
 }

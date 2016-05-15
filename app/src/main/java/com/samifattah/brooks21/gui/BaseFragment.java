@@ -24,7 +24,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public interface BaseFragmentInterface
     {
-        void onDoSomething(int index);
     }
 
     @Override

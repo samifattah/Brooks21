@@ -125,31 +125,4 @@ public class BaseActivity extends AppCompatActivity implements BaseFragment.Base
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Override
-    public void onDoSomething(int index)
-    {
-
-    }
 }
