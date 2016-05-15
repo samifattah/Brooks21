@@ -5,10 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-
 import com.samifattah.brooks21.R;
-import com.samifattah.brooks21.util.BaseFragment;
-import com.samifattah.brooks21.util.Utility;
 
 public class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentInterface
 {
