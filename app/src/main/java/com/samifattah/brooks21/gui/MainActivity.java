@@ -1,9 +1,10 @@
 package com.samifattah.brooks21.gui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.samifattah.brooks21.R;
+import com.samifattah.brooks21.util.BaseActivity;
+import com.samifattah.brooks21.util.IntentHelper;
 import com.samifattah.brooks21.util.Utility;
 
 public class MainActivity extends BaseActivity implements StartLogoScreenFragment.StartLogoScreenFragmentInterface
@@ -35,8 +36,9 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
     @Override
     public void whatthefuck()
     {
-        int a = 10;
+        IntentHelper intentHelper = new IntentHelper();
 
-        a = 10;
+        intentHelper.navigateToOneWay("http://www.google.com");
+
     }
 }

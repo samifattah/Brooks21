@@ -1,20 +1,13 @@
-package com.samifattah.brooks21.gui;
+package com.samifattah.brooks21.util;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.samifattah.brooks21.R;
+import com.samifattah.brooks21.util.BaseFragment;
 import com.samifattah.brooks21.util.Utility;
 
 public class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentInterface
@@ -125,4 +118,6 @@ public class BaseActivity extends AppCompatActivity implements BaseFragment.Base
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

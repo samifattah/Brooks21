@@ -1,4 +1,4 @@
-package com.samifattah.brooks21.gui;
+package com.samifattah.brooks21.util;
 
 import android.app.Activity;
 import android.app.Fragment;

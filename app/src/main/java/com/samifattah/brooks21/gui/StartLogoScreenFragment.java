@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.samifattah.brooks21.R;
+import com.samifattah.brooks21.util.BaseFragment;
 import com.samifattah.brooks21.util.Utility;
 
 public class StartLogoScreenFragment extends BaseFragment
