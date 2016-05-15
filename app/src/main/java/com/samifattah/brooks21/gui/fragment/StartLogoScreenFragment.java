@@ -1,4 +1,4 @@
-package com.samifattah.brooks21.gui;
+package com.samifattah.brooks21.gui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

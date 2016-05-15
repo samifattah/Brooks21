@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment class="com.samifattah.brooks21.gui.StartLogoScreenFragment"
+    <fragment class="com.samifattah.brooks21.gui.fragment.StartLogoScreenFragment"
         android:id="@+id/courseListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

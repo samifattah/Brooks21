@@ -1,8 +1,9 @@
-package com.samifattah.brooks21.gui;
+package com.samifattah.brooks21.gui.activity;
 
 import android.os.Bundle;
 
 import com.samifattah.brooks21.R;
+import com.samifattah.brooks21.gui.fragment.StartLogoScreenFragment;
 import com.samifattah.brooks21.util.BaseActivity;
 import com.samifattah.brooks21.util.IntentHelper;
 import com.samifattah.brooks21.util.Utility;
