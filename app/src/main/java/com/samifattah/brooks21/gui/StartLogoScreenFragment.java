@@ -31,6 +31,25 @@ public class StartLogoScreenFragment extends BaseFragment
 
         super.onCreateView(inflater, container, savedInstanceState);
 
+        m_LoginButton   = (Button) m_View.findViewById(R.id.loginbutton);
+
+        m_LoginRegister = (Button) m_View.findViewById(R.id.registerbutton);
+
+        Utility.Assert(m_LoginButton!=null);
+
+        Utility.Assert(m_LoginRegister!=null);
+
+        if(m_LoginButton!=null)
+        {
+            m_LoginButton.setOnClickListener(this);
+        }
+
+
+        if(m_LoginRegister!=null)
+        {
+            m_LoginRegister.setOnClickListener(this);
+        }
+
         return m_View;
     }
 
@@ -39,9 +58,15 @@ public class StartLogoScreenFragment extends BaseFragment
     {
         Utility.logDebug(m_szTag,"handleClick");
 
-        if(v.getId()==)
+        if(v.getId()==this.m_LoginButton.getId())
         {
 
         }
+
+        if(v.getId()==this.m_LoginRegister.getId())
+        {
+
+        }
+
     }
 }

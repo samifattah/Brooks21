@@ -19,6 +19,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     protected Activity    m_Activity 		  		   = null;
     protected View        m_View					   = null;
     protected int 		  m_iLayoutID				   = 0;
+    protected BaseFragmentInterface    m_BaseFragmentInterface;
+
+
+    public interface BaseFragmentInterface
+    {
+        void onDoSomething(int index);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -51,14 +58,17 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
         Utility.Assert( m_Activity != null );
 
-//        try
-//        {
-//            m_OnQFragmentInterface = ( OnQFragmentInterface )activity;
-//        }
-//        catch (ClassCastException e)
-//        {
-//            Utility.Assert();
-//        }
+        if(m_Activity!=null)
+        {
+            try
+            {
+                m_BaseFragmentInterface = (BaseFragmentInterface) m_Activity;
+            }
+            catch (ClassCastException e)
+            {
+                Utility.Assert();
+            }
+        }
     }
 
     @Override
@@ -137,6 +147,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onClick(View v)
     {
         Utility.logDebug(m_LocalTag,"onClick");
+
+        handleClick(v);
+
+
     }
 
     public abstract void handleClick(View v);
