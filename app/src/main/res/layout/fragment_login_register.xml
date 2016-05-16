@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
-                    android:id="@+id/logindummybuttonid"
+                    android:id="@+id/edittext1id"
                     android:textColor="#000000" />
             </LinearLayout>
 
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
-                    android:id="@+id/loginusernamedittextid"
+                    android:id="@+id/edittext2id"
                     android:hint="Username or email"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:id="@+id/loginpasswordedittextid"
+                    android:id="@+id/edittext3id"
                     android:hint="Password"
                     android:textColor="#000000" />
 
@@ -106,7 +106,7 @@
                 android:gravity="bottom">
 
                 <Button
-                    android:id="@+id/loginloginbuttonid"
+                    android:id="@+id/button1id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="LOG IN"
@@ -143,7 +143,6 @@
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:id="@+id/button"
                             android:background="@drawable/facebook" />
                     </LinearLayout>
 
@@ -155,7 +154,7 @@
 
                         <Button
 
-                        android:id="@+id/loginwithfacebookbuttonid"
+                        android:id="@+id/button2id"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="LOGIN WITH FACEBOOK"
@@ -197,7 +196,6 @@
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:id="@+id/button2"
                             android:background="@drawable/googleplus" />
                     </LinearLayout>
 
@@ -211,7 +209,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="LOGIN WITH GOOLE+"
-                            android:id="@+id/loginwithgooglebuttonid"
+                            android:id="@+id/button3id"
                             android:textColor="#ffffffff"
                             android:background="#DD4B38" />
                     </LinearLayout>
