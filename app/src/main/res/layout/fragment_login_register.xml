@@ -42,9 +42,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
-                    android:id="@+id/logindummybuttonid" />
+                    android:id="@+id/logindummybuttonid"
+                    android:textColor="#000000" />
             </LinearLayout>
 
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"></LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -58,8 +65,15 @@
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
                     android:id="@+id/loginusernamedittextid"
-                    android:hint="Username or email" />
+                    android:hint="Username or email"
+                    android:textColor="#000000" />
             </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -73,9 +87,16 @@
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
                     android:id="@+id/loginpasswordedittextid"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:textColor="#000000" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -88,9 +109,17 @@
                     android:id="@+id/loginloginbuttonid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="LOG IN" />
+                    android:text="LOG IN"
+                    android:textColor="#ffffffff"
+                    android:background="#94d5e8" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -133,7 +162,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_weight="1"
                             android:textColor="#ffffff"
-                            android:background="#2639cb" />
+                            android:background="#395796" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -143,15 +172,51 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="bottom">
 
-                <Button
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="LOGIN WITH GOOLE+"
-                    android:id="@+id/loginwithgooglebuttonid" />
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".25">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/button2"
+                            android:background="@drawable/googleplus" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".75">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="LOGIN WITH GOOLE+"
+                            android:id="@+id/loginwithgooglebuttonid"
+                            android:textColor="#ffffffff"
+                            android:background="#DD4B38" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
 
