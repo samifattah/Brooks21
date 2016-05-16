@@ -28,7 +28,7 @@ public class LoginFragment extends BaseFragment
 
         m_szTag = new String("StartLogoScreenFragment");
 
-        m_iLayoutID = R.layout.fragment_login;
+        m_iLayoutID = R.layout.fragment_login_register;
     }
 
     @Override
