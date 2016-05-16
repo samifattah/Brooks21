@@ -9,15 +9,13 @@
         android:id="@+id/id1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_login"
         android:layout_alignParentTop="true" />
 
 
-    <fragment class="com.samifattah.brooks21.gui.fragment.LoginFragment"
+    <fragment class="com.samifattah.brooks21.gui.fragment.RegisterFragment"
         android:id="@+id/id2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_login"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/id1" />
 
