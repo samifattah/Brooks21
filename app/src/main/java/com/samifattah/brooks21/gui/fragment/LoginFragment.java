@@ -21,9 +21,11 @@ public class LoginFragment extends BaseFragment
     private EditText m_PasswordEditText         = null;
 
 
-    public interface StartLogoScreenFragmentInterface extends BaseFragmentInterface
+    public interface LoginFragmentInterface extends BaseFragmentInterface
     {
-        void whatthefuck();
+        void    login(String szUserName , String szPassword);
+        void    loginWithFaceBook(String szUserName , String szPassword);
+        void    loginWithGooglePlus(String szUserName , String szPassword);
     }
 
     public LoginFragment()
@@ -33,6 +35,8 @@ public class LoginFragment extends BaseFragment
         m_szTag = new String("LoginFragment");
 
         m_iLayoutID = R.layout.fragment_login_register;
+
+        m_szFragmentName = new String(m_szTag);
     }
 
     @Override
@@ -113,35 +117,49 @@ public class LoginFragment extends BaseFragment
 
         Utility.logDebug(m_szTag,"handleClick");
 
-        if(v.getId()==m_LoginButton.getId())
-        {
+        LoginFragmentInterface loginFragmentInterface = (LoginFragmentInterface) m_BaseFragmentInterface;
 
+        Utility.Assert(loginFragmentInterface!=null);
+
+        if(loginFragmentInterface!=null)
+        {
+            String szUserName = m_UserNameAndEmailEditText.getText().toString();
+            String szPassword = m_PasswordEditText.getText().toString();
+
+            if (v.getId() == m_LoginButton.getId())
+            {
+                loginFragmentInterface.login(szUserName,szPassword);
+
+            }
+
+            if (v.getId() == m_LoginWithFaceBook.getId())
+            {
+                loginFragmentInterface.loginWithFaceBook (szUserName,szPassword);
+
+            }
+
+            if (v.getId() == m_LoginWithGooglePlus.getId())
+            {
+                loginFragmentInterface.loginWithGooglePlus (szUserName,szPassword);
+            }
+
+            if (v.getId() == m_DummyText.getId())
+            {
+
+            }
+
+            if (v.getId() == m_UserNameAndEmailEditText.getId())
+            {
+
+            }
+
+            if (v.getId() == m_PasswordEditText.getId())
+            {
+
+
+            }
         }
 
-        if(v.getId()==m_LoginWithFaceBook.getId())
-        {
-
-        }
-
-        if(v.getId()==m_LoginWithGooglePlus.getId())
-        {
-
-        }
-
-        if(v.getId()==m_DummyText.getId())
-        {
-
-        }
-
-        if(v.getId()==m_UserNameAndEmailEditText.getId())
-        {
-
-        }
-
-        if(v.getId()==m_PasswordEditText.getId())
-        {
-
-        }
 
     }
 }

@@ -12,9 +12,9 @@ import com.samifattah.brooks21.util.Utility;
 public class LogoFragment extends BaseFragment
 {
 
-    public interface StartLogoScreenFragmentInterface extends BaseFragmentInterface
+    public interface LogoFragmentInterface extends BaseFragmentInterface
     {
-        void whatthefuck();
+
     }
 
     public LogoFragment()
@@ -24,6 +24,8 @@ public class LogoFragment extends BaseFragment
         m_szTag = new String("LogoFragment");
 
         m_iLayoutID = R.layout.fragment_logo;
+
+        m_szFragmentName = new String(m_szTag);
     }
 
     @Override

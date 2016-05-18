@@ -19,7 +19,8 @@ public class StartLogoScreenFragment extends BaseFragment
 
     public interface StartLogoScreenFragmentInterface extends BaseFragmentInterface
     {
-        void whatthefuck();
+        void login();
+        void register();
     }
 
     public StartLogoScreenFragment()
@@ -29,6 +30,9 @@ public class StartLogoScreenFragment extends BaseFragment
         m_szTag = new String("StartLogoScreenFragment");
 
         m_iLayoutID = R.layout.fragment_startlogoscreen;
+
+        m_szFragmentName = new String(m_szTag);
+
     }
 
     @Override
@@ -51,7 +55,6 @@ public class StartLogoScreenFragment extends BaseFragment
             m_LoginButton.setOnClickListener(this);
         }
 
-
         if(m_LoginRegister!=null)
         {
             m_LoginRegister.setOnClickListener(this);
@@ -63,18 +66,24 @@ public class StartLogoScreenFragment extends BaseFragment
     @Override
     public void handleClick(View v)
     {
-
         Utility.logDebug(m_szTag,"handleClick");
 
-        if(v.getId()==this.m_LoginButton.getId())
-        {
-            StartLogoScreenFragmentInterface startLogoScreenFragmentInterface = (StartLogoScreenFragmentInterface) m_BaseFragmentInterface;
+        StartLogoScreenFragmentInterface startLogoScreenFragmentInterface = (StartLogoScreenFragmentInterface) m_BaseFragmentInterface;
 
-            startLogoScreenFragmentInterface.whatthefuck();
-        }
+        Utility.Assert(startLogoScreenFragmentInterface!=null);
 
-        if(v.getId()==this.m_LoginRegister.getId())
+        if(startLogoScreenFragmentInterface!=null)
         {
+            if(v.getId()==this.m_LoginButton.getId())
+            {
+                startLogoScreenFragmentInterface.login();
+
+            }
+
+            if(v.getId()==this.m_LoginRegister.getId())
+            {
+                startLogoScreenFragmentInterface.register();
+            }
 
         }
 

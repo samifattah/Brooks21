@@ -13,16 +13,45 @@ import android.view.ViewGroup;
  */
 public abstract class BaseFragment extends Fragment implements View.OnClickListener
 {
-    private final String  m_LocalTag                   = "BaseFragment";
-    protected String      m_szTag                      = null;
-    protected Activity    m_Activity 		  		   = null;
-    protected View        m_View					   = null;
-    protected int 		  m_iLayoutID				   = 0;
-    protected BaseFragmentInterface    m_BaseFragmentInterface;
-
+    private final String  m_LocalTag                           = "BaseFragment";
+    protected String      m_szTag                              = null;
+    protected Activity    m_Activity 		  		           = null;
+    protected View        m_View					           = null;
+    protected int 		  m_iLayoutID				           = 0;
+    protected int         m_iFragmentIndex                     = 0;
+    protected String m_szFragmentName                          = null;
+    protected BaseFragmentInterface    m_BaseFragmentInterface = null;
 
     public interface BaseFragmentInterface
     {
+    }
+
+    public int getFragmentIndex()
+    {
+        Utility.logDebug(m_LocalTag,"getFragmentIndex");
+
+        return m_iFragmentIndex;
+    }
+
+    public void setFragmentIndex(int iFragmentIndex)
+    {
+        Utility.logDebug(m_LocalTag,"setFragmentIndex");
+
+        m_iFragmentIndex = iFragmentIndex;
+    }
+
+    public String getFragmentName()
+    {
+        Utility.logDebug(m_LocalTag,"getFragmentName");
+
+        return m_szFragmentName;
+    }
+
+    public void setFragmentName(String szFragmentName)
+    {
+        Utility.logDebug(m_LocalTag,"setFragmentName");
+
+        m_szFragmentName = new String(szFragmentName);
     }
 
     @Override

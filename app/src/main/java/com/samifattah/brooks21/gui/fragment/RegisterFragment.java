@@ -20,9 +20,12 @@ public class RegisterFragment extends BaseFragment
     private EditText m_PasswordEditText            = null;
 
 
-    public interface StartLogoScreenFragmentInterface extends BaseFragmentInterface
+    public interface RegisterFragmentInterface extends BaseFragmentInterface
     {
-        void whatthefuck();
+        void    register(String szEmail ,  String szUserName , String szPassword);
+        void    registernWithFaceBook(String szEmail , String szUserName , String szPassword);
+        void    registerWithGooglePlus(String szEmail , String szUserName , String szPassword);
+
     }
 
     public RegisterFragment()
@@ -32,6 +35,8 @@ public class RegisterFragment extends BaseFragment
         m_szTag = new String("RegisterFragment");
 
         m_iLayoutID = R.layout.fragment_login_register;
+
+        m_szFragmentName = new String(m_szTag);
     }
 
     @Override
@@ -109,37 +114,49 @@ public class RegisterFragment extends BaseFragment
     @Override
     public void handleClick(View v)
     {
-
         Utility.logDebug(m_szTag,"handleClick");
 
-        if(v.getId()== m_RegisterButton.getId())
+        RegisterFragmentInterface loginFragmentInterface = (RegisterFragmentInterface) m_BaseFragmentInterface;
+
+        Utility.Assert(loginFragmentInterface!=null);
+
+        if(loginFragmentInterface!=null)
         {
+            String  szEmail     = m_EmailEditText.getText().toString();
+            String  szUserName  = m_UserNameEditText.getText().toString();
+            String szPassword   = m_UserNameEditText.getText().toString();
 
-        }
+            if (v.getId() == m_RegisterButton.getId())
+            {
+                loginFragmentInterface.register(szEmail,szUserName,szPassword);
 
-        if(v.getId()==m_RegisterWithFaceBook.getId())
-        {
+            }
 
-        }
+            if (v.getId() == m_RegisterWithFaceBook.getId())
+            {
+                loginFragmentInterface.registernWithFaceBook(szEmail,szUserName,szPassword);
 
-        if(v.getId()==m_RegisterWithGooglePlus.getId())
-        {
+            }
 
-        }
+            if (v.getId() == m_RegisterWithGooglePlus.getId())
+            {
+                loginFragmentInterface.registerWithGooglePlus(szEmail,szUserName,szPassword);
+            }
 
-        if(v.getId()==m_EmailEditText.getId())
-        {
+            if(v.getId()==m_EmailEditText.getId())
+            {
 
-        }
+            }
 
-        if(v.getId()==m_UserNameEditText.getId())
-        {
+            if(v.getId()==m_UserNameEditText.getId())
+            {
 
-        }
+            }
 
-        if(v.getId()==m_PasswordEditText.getId())
-        {
+            if(v.getId()==m_PasswordEditText.getId())
+            {
 
+            }
         }
 
     }
