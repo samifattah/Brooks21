@@ -82,15 +82,14 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
 
     }
 
-
     @Override
-    public void login()
+    public void loginMain()
     {
         Utility.logDebug(m_szTag,"login");
     }
 
     @Override
-    public void register()
+    public void registerMain()
     {
         Utility.logDebug(m_szTag,"register");
 

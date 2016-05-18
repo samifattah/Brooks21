@@ -19,8 +19,8 @@ public class StartLogoScreenFragment extends BaseFragment
 
     public interface StartLogoScreenFragmentInterface extends BaseFragmentInterface
     {
-        void login();
-        void register();
+        void loginMain();
+        void registerMain();
     }
 
     public StartLogoScreenFragment()
@@ -76,13 +76,13 @@ public class StartLogoScreenFragment extends BaseFragment
         {
             if(v.getId()==this.m_LoginButton.getId())
             {
-                startLogoScreenFragmentInterface.login();
+                startLogoScreenFragmentInterface.loginMain();
 
             }
 
             if(v.getId()==this.m_LoginRegister.getId())
             {
-                startLogoScreenFragmentInterface.register();
+                startLogoScreenFragmentInterface.registerMain();
             }
 
         }
