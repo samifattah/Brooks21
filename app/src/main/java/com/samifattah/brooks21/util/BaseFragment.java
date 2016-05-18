@@ -21,6 +21,25 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     protected int         m_iFragmentIndex                     = 0;
     protected String m_szFragmentName                          = null;
     protected BaseFragmentInterface    m_BaseFragmentInterface = null;
+    FragmentStatus m_FragmentStatus   = FragmentStatus.FragmentStatus_Undefined;
+    public enum FragmentStatus
+    {
+        FragmentStatus_Created,
+        FragmentStatus_CreateViewed,
+        FragmentStatus_Attached,
+        FragmentStatus_ActivityCreated,
+        FragmentStatus_Started,
+        FragmentStatus_Resumed,
+        FragmentStatus_Paused,
+        FragmentStatus_SaveInstance,
+        FragmentStatus_Stoped,
+        FragmentStatus_DestroyViewed,
+        FragmentStatus_onDestroyed,
+        FragmentStatus_onDetached,
+        FragmentStatus_Undefined
+    }
+
+
 
     public interface BaseFragmentInterface
     {
@@ -60,6 +79,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Utility.logDebug(m_LocalTag,"onCreate");
 
         super.onCreate(savedInstanceState);
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_Created;
     }
 
     @Override
@@ -70,6 +91,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         m_View = inflater.inflate( m_iLayoutID , container , false );
 
         Utility.Assert( m_View != null );
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_CreateViewed;
 
         return m_View;
     }
@@ -96,12 +119,16 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                 Utility.Assert();
             }
         }
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_Attached;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
         Utility.logDebug(m_LocalTag,"onActivityCreated");
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_ActivityCreated;
 
         super.onActivityCreated(savedInstanceState);
     }
@@ -111,6 +138,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     {
         Utility.logDebug(m_LocalTag,"onStart");
 
+        m_FragmentStatus = FragmentStatus.FragmentStatus_Started;
+
         super.onStart();
     }
 
@@ -118,6 +147,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onResume()
     {
         Utility.logDebug(m_LocalTag,"onResume");
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_Resumed;
 
         super.onResume();
     }
@@ -127,6 +158,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     {
         Utility.logDebug(m_LocalTag,"onPause");
 
+        m_FragmentStatus = FragmentStatus.FragmentStatus_Paused;
+
         super.onPause();
     }
 
@@ -134,6 +167,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onSaveInstanceState(Bundle savedInstanceState)
     {
         Utility.logDebug(m_LocalTag,"onSaveInstanceState");
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_SaveInstance;
 
         super.onSaveInstanceState(savedInstanceState);
     }
@@ -143,6 +178,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     {
         Utility.logDebug(m_LocalTag,"onStop");
 
+        m_FragmentStatus = FragmentStatus.FragmentStatus_Stoped;
+
         super.onStop();
     }
 
@@ -150,6 +187,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onDestroyView()
     {
         Utility.logDebug(m_LocalTag,"onDestroyView");
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_DestroyViewed;
 
         super.onDestroyView();
     }
@@ -159,6 +198,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     {
         Utility.logDebug(m_LocalTag,"onDestroy");
 
+        m_FragmentStatus = FragmentStatus.FragmentStatus_onDestroyed;
+
         super.onDestroy();
     }
 
@@ -166,6 +207,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onDetach()
     {
         Utility.logDebug(m_LocalTag,"onDetach");
+
+        m_FragmentStatus = FragmentStatus.FragmentStatus_onDetached;
 
         super.onDetach();
     }
@@ -178,6 +221,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         handleClick(v);
 
 
+    }
+
+    public FragmentStatus getFragmentStatus()
+    {
+        return m_FragmentStatus;
     }
 
     public abstract void handleClick(View v);
