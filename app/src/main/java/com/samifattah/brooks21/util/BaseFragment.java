@@ -98,11 +98,28 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     @Override
+    public void onAttach(Activity activity)
+    {
+        Utility.logDebug(m_LocalTag,"onAttach");
+
+        super.onAttach(activity);
+
+        processOnAttach((Context) activity);
+    }
+
+    @Override
     public void onAttach(Context context)
     {
         Utility.logDebug(m_LocalTag,"onAttach");
 
         super.onAttach(context);
+
+        processOnAttach(context);
+    }
+
+    public void processOnAttach(Context context)
+    {
+        Utility.logDebug(m_LocalTag,"processOnAttach");
 
         m_Activity = (Activity) context;
 
@@ -219,8 +236,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Utility.logDebug(m_LocalTag,"onClick");
 
         handleClick(v);
-
-
     }
 
     public FragmentStatus getFragmentStatus()
