@@ -20,6 +20,7 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
     private ArrayAdapter<String> m_Adapter = null;
     private ActionBarDrawerToggle m_DrawerToggle = null;
     private Toolbar m_Toolbar = null;
+    private NavigationView m_NavigationView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,9 +39,9 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
 
         m_DrawerLayout.setDrawerListener( m_DrawerToggle );
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        m_NavigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        navigationView.setNavigationItemSelectedListener(this);
+        m_NavigationView.setNavigationItemSelectedListener(this);
 
         m_DrawerToggle.syncState();
 
