@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import com.samifattah.brooks21.R;
 
-public class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentInterface
+public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentInterface
 {
     private final String  m_LocalTag                   = "BaseActivity";
     protected String      m_szTag                      = null;
@@ -58,6 +58,22 @@ public class BaseActivity extends AppCompatActivity implements BaseFragment.Base
         Utility.logDebug(m_LocalTag,"onRestart");
 
         super.onRestart();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        int iReturn = backKeyPressed();
+
+        if(iReturn == 0)
+        {
+            return;
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+
     }
 
     @Override
@@ -115,6 +131,8 @@ public class BaseActivity extends AppCompatActivity implements BaseFragment.Base
 
         return super.onOptionsItemSelected(item);
     }
+
+    public abstract  int backKeyPressed();
 
 
 }

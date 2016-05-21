@@ -1,5 +1,6 @@
 package com.samifattah.brooks21.gui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.samifattah.brooks21.R;
@@ -88,6 +89,21 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
     }
 
     @Override
+    public int backKeyPressed()
+    {
+        int iReturn = 1;
+
+        if (getFragmentManager().getBackStackEntryCount() > 0 )
+        {
+            getFragmentManager().popBackStack();
+
+            iReturn = 0;
+        }
+
+        return iReturn;
+    }
+
+    @Override
     public void loginMain()
     {
         Utility.logDebug(m_szTag,"login");
@@ -103,18 +119,33 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
     {
         Utility.logDebug(m_szTag,"register");
 
+        BaseFragment baseFragment = new RegisterFragment();
+
+        this.m_FragmenstManager.replaceFragment(baseFragment,true);
+
     }
 
     @Override
     public void login(String szUserName, String szPassword)
     {
         Utility.logDebug(m_szTag,"login");
+
+        //IntentHelper intentHelper = new IntentHelper(this);
+
+        Intent intent = new Intent(this, MainAppActivity.class);
+
+        startActivity(intent);
+
+        this.finish();
+
     }
 
     @Override
     public void loginWithFaceBook(String szUserName, String szPassword)
     {
         Utility.logDebug(m_szTag,"loginWithFaceBook");
+
+
 
     }
 
