@@ -34,45 +34,6 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
 
         Utility.Assert(m_FragmenstManager!=null);
 
-//        {
-//            LoginFragment loginFragment = new LoginFragment();
-//
-//            Utility.Assert(loginFragment != null);
-//
-//            if (loginFragment != null)
-//            {
-//                loginFragment.setFragmentIndex(iIndex);
-//
-//                iIndex++;
-//            }
-//        }
-//
-//        {
-//            RegisterFragment registerFragment = new RegisterFragment();
-//
-//            Utility.Assert(registerFragment != null);
-//
-//            if (registerFragment != null)
-//            {
-//                registerFragment.setFragmentIndex(iIndex);
-//
-//                iIndex++;
-//            }
-//        }
-//
-//        {
-//            StartLogoScreenFragment startLogoScreenFragment = new StartLogoScreenFragment();
-//
-//            Utility.Assert(startLogoScreenFragment != null);
-//
-//            if (startLogoScreenFragment != null)
-//            {
-//                startLogoScreenFragment.setFragmentIndex(iIndex);
-//
-//                iIndex++;
-//            }
-//        }
-
     }
 
     @Override
