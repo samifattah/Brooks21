@@ -1,10 +1,7 @@
 package com.samifattah.brooks21.gui.activity;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,18 +11,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.samifattah.brooks21.R;
-
-import java.util.ArrayList;
 
 public class MainAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ListView m_DrawerList = null;
-    private DrawerLayout m_DrawerLayout;
+    private DrawerLayout m_DrawerLayout = null;
     private ArrayAdapter<String> m_Adapter = null;
     private ActionBarDrawerToggle m_DrawerToggle = null;
-    //private ArrayList<FragmentItem> m_FragmentItemsArrayList = null;
+    private Toolbar m_Toolbar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,13 +28,13 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
 
         setContentView(R.layout.activity_main_app);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        m_Toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(m_Toolbar);
 
         m_DrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        m_DrawerToggle = new ActionBarDrawerToggle(this, m_DrawerLayout,toolbar,R.string.app_name,R.string.app_name);
+        m_DrawerToggle = new ActionBarDrawerToggle(this, m_DrawerLayout,m_Toolbar,R.string.app_name,R.string.app_name);
 
         m_DrawerLayout.setDrawerListener( m_DrawerToggle );
 
@@ -55,11 +49,9 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
     @Override
     public void onBackPressed()
     {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        if (drawer.isDrawerOpen(GravityCompat.START))
+        if (m_DrawerLayout.isDrawerOpen(GravityCompat.START))
         {
-            drawer.closeDrawer(GravityCompat.START);
+            m_DrawerLayout.closeDrawer(GravityCompat.START);
         }
         else
         {
@@ -68,7 +60,8 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
 //        // Inflate the menu; this adds items to the action bar if it is present.
 //        getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -92,7 +85,8 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
 
         int id = item.getItemId();
 
