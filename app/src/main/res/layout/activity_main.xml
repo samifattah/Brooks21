@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <fragment class="com.samifattah.brooks21.gui.fragment.LogoFragment"
         android:id="@+id/id1"
         android:layout_width="match_parent"
