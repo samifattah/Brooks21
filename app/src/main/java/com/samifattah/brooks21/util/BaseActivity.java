@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import com.samifattah.brooks21.R;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentInterface
 {
@@ -19,17 +18,19 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
         Utility.logDebug(m_LocalTag,"onCreate");
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(m_iLayoutID);
+
+        create();
     }
 
     @Override
-    protected void onPause()
+    public void onPause()
     {
         Utility.logDebug(m_LocalTag,"onPause");
 
@@ -37,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     }
 
     @Override
-    protected void onResume()
+    public void onResume()
     {
         Utility.logDebug(m_LocalTag,"onResume");
 
@@ -133,6 +134,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     }
 
     public abstract  int backKeyPressed();
+
+
+    public abstract  void create();
 
 
 }

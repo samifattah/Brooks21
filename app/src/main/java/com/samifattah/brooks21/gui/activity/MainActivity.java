@@ -10,7 +10,6 @@ import com.samifattah.brooks21.gui.fragment.StartLogoScreenFragment;
 import com.samifattah.brooks21.util.BaseActivity;
 import com.samifattah.brooks21.util.BaseFragment;
 import com.samifattah.brooks21.util.FragmentsManager;
-import com.samifattah.brooks21.util.IntentHelper;
 import com.samifattah.brooks21.util.Utility;
 
 public class MainActivity extends BaseActivity implements StartLogoScreenFragment.StartLogoScreenFragmentInterface ,
@@ -30,20 +29,19 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
 
         m_iLayoutID = R.layout.activity_main;
 
-        m_FragmenstManager = new FragmentsManager(this,R.id.id2);
+        m_FragmenstManager = new FragmentsManager(this,R.id.FrameLayoutMainID);
 
         Utility.Assert(m_FragmenstManager!=null);
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void create()
     {
-        Utility.logDebug(m_szTag,"onCreate");
-
-        super.onCreate(savedInstanceState);
+        Utility.logDebug(m_szTag,"create");
 
         BaseFragment startLogoScreenFragment = new StartLogoScreenFragment();
+
+        Utility.Assert(startLogoScreenFragment!=null);
 
         this.m_FragmenstManager.addFragment(startLogoScreenFragment,true);
 
@@ -71,6 +69,8 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
 
         BaseFragment baseFragment = new LoginFragment();
 
+        Utility.Assert(baseFragment!=null);
+
         this.m_FragmenstManager.replaceFragment(baseFragment,true);
 
     }
@@ -81,6 +81,8 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
         Utility.logDebug(m_szTag,"register");
 
         BaseFragment baseFragment = new RegisterFragment();
+
+        Utility.Assert(baseFragment!=null);
 
         this.m_FragmenstManager.replaceFragment(baseFragment,true);
 
@@ -95,6 +97,8 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
 
         Intent intent = new Intent(this, MainAppActivity.class);
 
+        Utility.Assert(intent!=null);
+
         startActivity(intent);
 
         this.finish();
@@ -105,9 +109,6 @@ public class MainActivity extends BaseActivity implements StartLogoScreenFragmen
     public void loginWithFaceBook(String szUserName, String szPassword)
     {
         Utility.logDebug(m_szTag,"loginWithFaceBook");
-
-
-
     }
 
     @Override

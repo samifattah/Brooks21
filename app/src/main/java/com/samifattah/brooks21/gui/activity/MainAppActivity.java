@@ -5,16 +5,23 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.samifattah.brooks21.R;
+import com.samifattah.brooks21.gui.fragment.AboutusFragment;
+import com.samifattah.brooks21.gui.fragment.ContactusFragment;
+import com.samifattah.brooks21.util.BaseActivity;
+import com.samifattah.brooks21.util.BaseFragment;
+import com.samifattah.brooks21.util.FragmentsManager;
+import com.samifattah.brooks21.util.Utility;
 
-public class MainAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainAppActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener
+{
 
+    private FragmentsManager m_FragmenstManager = null;
     private ListView m_DrawerList = null;
     private DrawerLayout m_DrawerLayout = null;
     private ArrayAdapter<String> m_Adapter = null;
@@ -22,12 +29,26 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
     private Toolbar m_Toolbar = null;
     private NavigationView m_NavigationView = null;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public MainAppActivity()
     {
-        super.onCreate(savedInstanceState);
+        int iIndex = 0;
 
-        setContentView(R.layout.activity_main_app);
+        Utility.logDebug(m_szTag,"MainAppActivity");
+
+        m_szTag = new String("MainActivity");
+
+        m_iLayoutID = R.layout.activity_main_app;
+
+        m_FragmenstManager = new FragmentsManager(this,R.id.FrameLayoutMainAPPID);
+
+        Utility.Assert(m_FragmenstManager!=null);
+
+    }
+
+
+    public void create()
+    {
+        Utility.logDebug(m_szTag,"create");
 
         m_Toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -35,56 +56,45 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
 
         m_DrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        Utility.Assert(m_DrawerLayout!=null);
+
         m_DrawerToggle = new ActionBarDrawerToggle(this, m_DrawerLayout,m_Toolbar,R.string.app_name,R.string.app_name);
+
+        Utility.Assert(m_DrawerToggle!=null);
 
         m_DrawerLayout.setDrawerListener( m_DrawerToggle );
 
+        m_DrawerToggle.syncState();
+
         m_NavigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        Utility.Assert(m_DrawerToggle!=null);
 
         m_NavigationView.setNavigationItemSelectedListener(this);
 
-        m_DrawerToggle.syncState();
+
+        BaseFragment baseFragment = new AboutusFragment();
+
+        m_FragmenstManager.addFragment(baseFragment,false);
 
     }
 
     @Override
-    public void onBackPressed()
+    public int backKeyPressed()
     {
+        int iResult = 1;
+
         if (m_DrawerLayout.isDrawerOpen(GravityCompat.START))
         {
             m_DrawerLayout.closeDrawer(GravityCompat.START);
+
+            iResult = 0;
         }
-        else
-        {
-            super.onBackPressed();
-        }
+
+        return iResult;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
@@ -93,17 +103,22 @@ public class MainAppActivity extends AppCompatActivity implements NavigationView
 
         if (id == R.id.aboutus)
         {
+            BaseFragment baseFragment = new AboutusFragment();
 
+            m_FragmenstManager.replaceFragment(baseFragment,false);
         }
-        else
+
         if (id == R.id.contactus)
         {
+            BaseFragment baseFragment = new ContactusFragment();
+
+            m_FragmenstManager.replaceFragment(baseFragment,false);
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        drawer.closeDrawer(GravityCompat.START);
+        m_DrawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
     }
