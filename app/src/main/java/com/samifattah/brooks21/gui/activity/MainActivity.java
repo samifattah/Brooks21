@@ -2,7 +2,7 @@ package com.samifattah.brooks21.gui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+   
 import com.samifattah.brooks21.R;
 import com.samifattah.brooks21.gui.fragment.LoginFragment;
 import com.samifattah.brooks21.gui.fragment.RegisterFragment;
